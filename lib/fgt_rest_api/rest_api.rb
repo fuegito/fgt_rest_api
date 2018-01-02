@@ -72,7 +72,7 @@ module FGT
 
     %w[get post].each do |request_method|
       define_method('monitor_' + request_method) do |path, params = {}|
-        raise(SafeModeActiveError) if (request_method != 'get' && safe_mode)
+        raise(SafeModeActiveError) if request_method != 'get' && safe_mode
         path.gsub!(/\/*$/, '')
         url_path = "api/#{api_version}/monitor/#{path}/"
         params[:vdom] = use_vdom unless params.key?(:vdom)
@@ -118,7 +118,7 @@ module FGT
     end
 
     def cmdb(request_method: 'get', path:, name:, mkey: '', child_name: '', child_mkey: '', vdom: use_vdom, params: {})
-      raise(SafeModeActiveError) if (request_method != 'get' && safe_mode)
+      raise(SafeModeActiveError) if request_method != 'get' && safe_mode
       raise(CMDBPathError) unless /^\w*\.?\w+$/ === path
       raise(CMDBNameError) unless /^[^\/]+$/ === name
       raise(CMDBMKeyError) unless /^[^\/]*$/ === mkey
