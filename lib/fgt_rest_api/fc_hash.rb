@@ -1,7 +1,5 @@
 module FGT
-
   class FCHash < ::Hash
-
     def []=(key, value)
       raise(ArgumentError, "key needs start with downcase letter: >>#{key}<<") unless key[0] == key[0].downcase
       if key.is_a?(String)
@@ -44,7 +42,5 @@ module FGT
       return true if respond_to?(method_name.to_sym)
       define_singleton_method(method_name) { |v| store(key, v) }
     end
-
   end
-
 end

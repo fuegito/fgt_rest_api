@@ -156,12 +156,15 @@ end
   def initialize(x = 'A', y = 1)
     super
   end
+
   def x_incr
     self.x = self.x.next
   end
+
   def y_incr
     self.y = self.y.next
   end
+
   def reset
     self.y = 1
     self.x = 'A'
@@ -214,14 +217,12 @@ p.workbook do |wb|
   fix_top_row
   auto_filter
 
-
   # address groups
   max_members = 0
   rulebase.addrgrp.each { |o| max_members = o.member.size if o.member.size > max_members }
   @cell.reset
   @sheet = worksheets.find { |ws| ws.name == 'AddressGroups' }
   create_ws_groups(rulebase.addrgrp, max_members)
-
 
   # VIPs (LB & DNAT)
   @cell.reset
@@ -236,14 +237,12 @@ p.workbook do |wb|
   fix_top_row
   auto_filter
 
-
   # VIP groups
   max_members = 0
   rulebase.vipgrp.each { |o| max_members = o.member.size if o.member.size > max_members }
   @cell.reset
   @sheet = worksheets.find { |ws| ws.name == 'VIPGroups' }
   create_ws_groups(rulebase.vipgrp, max_members)
-
 
   # IPpools (SNAT)
   @cell.reset
@@ -258,7 +257,6 @@ p.workbook do |wb|
   fix_top_row
   auto_filter
 
-
   # services
   @cell.reset
   @sheet = worksheets.find { |ws| ws.name == 'Services' }
@@ -272,14 +270,12 @@ p.workbook do |wb|
   fix_top_row
   auto_filter
 
-
   # service groups
   max_members = 0
   rulebase.service_group.each { |o| max_members = o.member.size if o.member.size > max_members }
   @cell.reset
   @sheet = worksheets.find { |ws| ws.name == 'ServiceGroups' }
   create_ws_groups(rulebase.service_group, max_members)
-
 
   # objectref worksheet
   @cell.reset
@@ -310,7 +306,6 @@ p.workbook do |wb|
     end
     2.times { add_row(styles: [@style[:header]]*@columns.size) }
   end
-
 
   # policy
   @cell.reset

@@ -1,8 +1,6 @@
 module FGT
   class RestApi
-
     class << self
-
       def tcp_port_open?(ip, port, timeout = 2)
         Timeout.timeout(timeout) do
           TCPSocket.new(ip, port).close
@@ -12,7 +10,6 @@ module FGT
              Errno::ETIMEDOUT, Timeout::Error
         return false
       end
-
     end
 
     attr_reader(
