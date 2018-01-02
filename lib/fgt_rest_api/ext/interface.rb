@@ -1,6 +1,5 @@
 module FGT
   class RestApi
-
     def interface_by_name(interface, vdom = use_vdom)
       cmdb_get(path: 'system', name: 'interface', vdom: vdom, params: { filter: ["name==#{interface}", "vdom==#{vdom}"] }).results.find do |i|
         i.vdom == vdom && i.name == interface
@@ -14,6 +13,5 @@ module FGT
         interface_types.include?(n.type) && n.vdom == vdom
       end
     end
-
   end
 end
