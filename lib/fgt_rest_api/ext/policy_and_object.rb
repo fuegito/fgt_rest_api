@@ -59,7 +59,7 @@ module FGT
     end
 
     def ipnetwork(vdom = use_vdom)
-      address(vdom).select { |o| o.type == 'ipmask' && !(/255.255.255.255$/.match(o.subnet)) }
+      address(vdom).select { |o| o.type == 'ipmask' && !/255.255.255.255$/.match(o.subnet) }
     end
 
     def fqdn(vdom = use_vdom)
