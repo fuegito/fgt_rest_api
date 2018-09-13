@@ -72,8 +72,7 @@ module FGT
     %w[get post].each do |request_method|
       define_method('monitor_' + request_method) do |path, params = {}|
         raise(SafeModeActiveError) if request_method != 'get' && safe_mode
-        path.gsub!(/\/*$/, '')
-        url_path = "api/#{api_version}/monitor/#{path}/"
+        url_path = "api/#{api_version}/monitor/#{path.gsub(/\/*$/, '')}/"
         params[:vdom] = use_vdom unless params.key?(:vdom)
         request(request_method, url_path, params)
       end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fgt_rest_api (0.0.8)
+    fgt_rest_api (0.1.4)
       httpclient
       netaddr
 
@@ -9,10 +9,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     httpclient (2.8.3)
-    netaddr (1.5.1)
+    netaddr (2.0.3)
     rake (10.5.0)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -21,4 +22,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

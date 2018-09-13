@@ -1,4 +1,4 @@
-# FGT::RestApi v0.1.4
+# FGT::RestApi v0.1.5
 
 Welcome to fgt_rest_api!
 This is the attempt of creating a nice and useful interface to a FortiGate REST API with a ruby-class.
@@ -16,7 +16,7 @@ This gem has not been released to rubygems, yet. There is much work to do on doc
 
 Checkout the tree from https://github.com/fuegito/fgt_rest_api.git.
 Chdir in the repo-dir and do a "rake build".
-After that, do "gem install pkg/fgt_rest_api-0.1.4.gem".
+After that, do "gem install pkg/fgt_rest_api-0.1.5.gem".
 Now you can use this gem as described below in 'Usage'.
 
 ## Usage
