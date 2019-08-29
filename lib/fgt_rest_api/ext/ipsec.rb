@@ -22,11 +22,11 @@ module FGT
     end
 
     def ipsec_incoming_bytes(tunnel_parent)
-       ipsec_tunnels.select { |t| t['parent'] == tunnel_parent || t['name'] == tunnel_parent }.map { |t2| t2['incoming_bytes'] }.inject(0){|sum,x| sum + x }
+       ipsec_tunnels.select { |t| t['parent'] == tunnel_parent || t['name'] == tunnel_parent }.map { |t2| t2['incoming_bytes'] }.inject(0) { |sum, x| sum + x }
     end
 
     def ipsec_outgoing_bytes(tunnel_parent)
-       ipsec_tunnels.select { |t| t['parent'] == tunnel_parent || t['name'] == tunnel_parent }.map { |t2| t2['outgoing_bytes'] }.inject(0){|sum,x| sum + x }
+       ipsec_tunnels.select { |t| t['parent'] == tunnel_parent || t['name'] == tunnel_parent }.map { |t2| t2['outgoing_bytes'] }.inject(0) { |sum, x| sum + x }
     end
   end
 end
