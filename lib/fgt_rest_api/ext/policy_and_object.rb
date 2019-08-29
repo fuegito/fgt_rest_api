@@ -20,6 +20,7 @@ module FGT
 
     def clear_cache_var(ivar)
       return nil unless instance_variable_defined?(ivar) && @inst_var_refreshable.include?(ivar)
+
       remove_instance_variable(ivar)
       @inst_var_refreshable.tap { |a| a.delete(ivar) }
     end
@@ -77,6 +78,7 @@ module FGT
       groups.each do |group|
         grouped_groups = find_group_for_object(group[:name], vdom)
         next if grouped_groups.empty?
+
         groups += grouped_groups
       end
       groups.flatten.uniq.compact

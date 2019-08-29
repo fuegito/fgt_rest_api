@@ -4,6 +4,7 @@ module FGT
   class FCHash < ::Hash
     def []=(key, value)
       raise(ArgumentError, "key needs start with downcase letter: >>#{key}<<") unless key[0] == key[0].downcase
+
       if key.is_a?(String)
         super(key, value)
       elsif key.is_a?(Symbol)
@@ -16,6 +17,7 @@ module FGT
 
     def [](key)
       raise(ArgumentError, "key needs start with downcase: >>#{key}<<") unless key.to_s[0] == key.to_s[0].downcase
+
       if key.is_a?(String)
         super(key)
       elsif key.is_a?(Symbol)
@@ -36,6 +38,7 @@ module FGT
     def getter_method(key)
       method_name = key.to_s.tr('-', '_')
       return true if respond_to?(method_name.to_sym)
+
       define_singleton_method(method_name) do
         begin
           fetch(key)
@@ -48,6 +51,7 @@ module FGT
     def setter_method(key)
       method_name = key.to_s.tr('-', '_') + '='
       return true if respond_to?(method_name.to_sym)
+
       define_singleton_method(method_name) { |v| store(key, v) }
     end
   end

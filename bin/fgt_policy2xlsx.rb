@@ -107,6 +107,7 @@ def add_row(
   add_obj_xlsxreference(object) unless object.nil?
   @cell.y_incr
   return @sheet.ws.add_row(@headers, styles: styles, types: types, widths: widths) if row.nil?
+
   @sheet.ws.add_row(row, styles: styles, types: types, widths: widths)
 end
 
