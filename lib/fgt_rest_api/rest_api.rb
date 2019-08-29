@@ -72,6 +72,7 @@ module FGT
     %w[get post].each do |request_method|
       define_method('monitor_' + request_method) do |path, params = {}|
         raise(SafeModeActiveError) if request_method != 'get' && safe_mode
+
         url_path = "api/#{api_version}/monitor/#{path.gsub(/\/*$/, '')}/"
         params[:vdom] = use_vdom unless params.key?(:vdom)
         request(request_method, url_path, params)
@@ -91,6 +92,7 @@ module FGT
     def memoize_results(key)
       (@inst_var_refreshable || @inst_var_refreshable = Set.new) << key
       return instance_variable_get(key) if instance_variable_defined?(key)
+
       instance_variable_set(key, yield)
     end
 
@@ -122,6 +124,7 @@ module FGT
       raise(CMDBMKeyError) unless /^[^\/]*$/.match?(mkey)
       raise(CMDBChildNameError) unless /^[^\/]*$/.match?(child_name)
       raise(CMDBChildMKeyError) unless /^[^\/]*$/.match?(child_mkey)
+
       url_path = "api/#{api_version}/cmdb/#{path}/#{name}/"
       unless mkey.empty?
         url_path += "#{mkey}/"
