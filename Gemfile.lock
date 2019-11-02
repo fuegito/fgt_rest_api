@@ -9,7 +9,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     httpclient (2.8.3)
-    netaddr (2.0.3)
+    netaddr (2.0.4)
     rake (10.5.0)
 
 PLATFORMS
