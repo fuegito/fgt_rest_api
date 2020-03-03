@@ -25,6 +25,10 @@ module FGT
       end
     end
 
+    def method_missing(m, *args, &block)
+      ""
+    end
+
     private
 
     def attribute_methods(key, value)
