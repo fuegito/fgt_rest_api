@@ -26,7 +26,7 @@ module FGT
     end
 
     def method_missing(m, *args, &block)
-      ""
+      nil
     end
 
     private
